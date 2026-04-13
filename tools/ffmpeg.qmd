@@ -1,12 +1,11 @@
 ---
 title: "ffmpeg"
-date: 2026-04-13
 categories: [Media]
 index: "002"
 image: ../assets/image/ffmpeg.png
 ---
 
-![](../assets/image/ffmpeg.png){width=200}
+![](../assets/image/ffmpeg.png){height=80 fig-align="center"}
 
 ## Intro
 

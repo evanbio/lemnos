@@ -1,12 +1,11 @@
 ---
 title: "yt-dlp"
-date: 2026-04-13
 categories: [Media]
 index: "001"
 image: ../assets/image/yt-dlp.png
 ---
 
-![](../assets/image/yt-dlp.png){width=300}
+![](../assets/image/yt-dlp.png){height=80 fig-align="center"}
 
 ## Intro
 

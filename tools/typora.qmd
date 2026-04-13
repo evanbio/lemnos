@@ -1,12 +1,11 @@
 ---
 title: "Typora"
-date: 2026-04-13
 categories: [Writing]
 index: "003"
 image: ../assets/image/typora.png
 ---
 
-![](../assets/image/typora.png){width=200}
+![](../assets/image/typora.png){height=80 fig-align="center"}
 
 ## Intro
 

@@ -1,9 +1,7 @@
 ---
 title: "Lemnos"
-date: today
-author: "Yibin Zhou"
-license: "CC BY-NC 4.0"
 toc: false
+page-layout: full
 ---
 
 A personal workshop — tools I actually use, documented the way I wish they had been.
@@ -17,7 +15,7 @@ import pandas as pd
 
 df = pd.read_csv("registry.csv")
 df["name"] = '<a href="' + df["file"] + '">' + df["name"] + "</a>"
-df = df.drop(columns=["file"])
+df = df[["name", "category", "description"]]
 df.columns = ["Tool", "Category", "Description"]
 HTML(df.to_html(escape=False, index=False))
 ```

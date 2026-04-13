@@ -5,27 +5,15 @@ website:
   title: "Lemnos"
   description: "A personal collection of tools I actually use."
 
-  search:
-    location: navbar
-    type: overlay
-
-  navbar:
-    background: primary
-    left:
-      - text: "Workshop"
-        href: index.qmd
-    right:
+  sidebar:
+    style: "docked"
+    search: true
+    tools:
       - icon: github
         href: https://github.com/evanbio/lemnos
         aria-label: GitHub
-
-  sidebar:
-    style: "floating"
-    collapse-level: 1
     contents:
-      - section: "Home"
-        contents:
-          - index.qmd
+      - index.qmd
       - section: "Media"
         contents:
           - tools/yt-dlp.qmd
@@ -41,11 +29,15 @@ website:
 format:
   html:
     theme:
-      light: cosmo
+      light: flatly
       dark: darkly
     css: styles.css
+    fontsize: 20px
+    mainfont: "Source Serif 4"
+    monofont: "JetBrains Mono"
     toc: true
     toc-depth: 3
+    toc-location: right
     toc-title: "On this page"
     code-copy: true
     code-overflow: wrap
