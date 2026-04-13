@@ -1,0 +1,71 @@
+---
+title: "yt-dlp"
+date: 2026-04-13
+categories: [Media]
+index: "001"
+image: ../assets/image/yt-dlp.png
+---
+
+![](../assets/image/yt-dlp.png){width=300}
+
+## Intro
+
+yt-dlp 是目前最强的视频下载工具，GitHub 156k+ stars，由已停止维护的 youtube-dl fork 而来，更新频率高、格式支持广、绕过限制的能力强。社区里提到"下 YouTube"，基本默认就是它。
+
+## My Use
+
+我用它做一件事：把 YouTube 上值得留存的视频下载到本地。不依赖网络、不怕失效、画质可控。偶尔也用来提取音轨。
+
+## When to Use / Not Use
+
+**适合**
+
+- YouTube 及主流平台的视频下载
+- 批量下载播放列表
+- 提取音频（配合 ffmpeg）
+
+**不适合**
+
+- 有 DRM 保护的内容（Netflix、Disney+ 等）
+- 需要登录会员才能观看的内容（cookie 方案不稳定）
+- 实时直播录制（有专用工具更合适）
+
+## Gotchas
+
+- 格式代码会随平台变化，`-f best` 不总是最优，建议显式指定
+- 下载后视频和音频是分离的，没有 ffmpeg 就无法合并成 mp4
+- YouTube 频繁更新反爬策略，遇到失败先升级版本：`pip install -U yt-dlp`
+- `--cookies-from-browser` 偶发失效，尽量不依赖登录状态下载
+
+## My Setup
+
+```bash
+# 下载最佳画质，合并为 mp4
+yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]" \
+       --merge-output-format mp4 \
+       -o "%(title)s.%(ext)s" \
+       <URL>
+```
+
+## Story
+
+2020 年，RIAA 用 DMCA 把 youtube-dl 从 GitHub 下架了。事情后来的发展不太符合他们的初衷：代码没有消失，反而以更多 fork、镜像和替代实现的形式散了出去。yt-dlp 就是在这种背景下出现的。互联网有时就是这样——越想让某样东西安静下来，它往往越难安静。
+
+## References
+
+- [GitHub](https://github.com/yt-dlp/yt-dlp)
+- [Supported sites](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)
+- [Wiki](https://github.com/yt-dlp/yt-dlp/wiki)
+
+## Minimal Example
+
+```bash
+# 单个视频
+yt-dlp <URL>
+
+# 仅提取音频（需要 ffmpeg）
+yt-dlp -x --audio-format mp3 <URL>
+
+# 下载整个播放列表
+yt-dlp -o "%(playlist_index)s-%(title)s.%(ext)s" <PLAYLIST_URL>
+```

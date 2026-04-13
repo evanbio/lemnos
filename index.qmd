@@ -1,0 +1,27 @@
+---
+title: "Lemnos"
+date: today
+author: "Yibin Zhou"
+license: "CC BY-NC 4.0"
+toc: false
+---
+
+A personal workshop — tools I actually use, documented the way I wish they had been.
+
+## Registry
+
+```{python}
+#| echo: false
+from IPython.display import HTML
+import pandas as pd
+
+df = pd.read_csv("registry.csv")
+df["name"] = '<a href="' + df["file"] + '">' + df["name"] + "</a>"
+df = df.drop(columns=["file"])
+df.columns = ["Tool", "Category", "Description"]
+HTML(df.to_html(escape=False, index=False))
+```
+
+## How to use
+
+Each page covers setup, key options, and the parts worth remembering. This is a reference, not a tutorial.
