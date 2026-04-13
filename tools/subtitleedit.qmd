@@ -1,0 +1,62 @@
+---
+title: "Subtitle Edit"
+categories: [Media]
+index: "005"
+image: ../assets/image/subtitleedit.png
+---
+
+![](../assets/image/subtitleedit.png){height=80 fig-align="center"}
+
+## Intro
+
+Subtitle Edit 是功能最全的字幕编辑器，支持 300+ 字幕格式，免费开源。GUI 操作，有波形显示、机器翻译、批量处理等功能。字幕相关的事情，基本都能在这里解决。
+
+## My Use
+
+处理字幕的主要工具——清理广告行、制作双语字幕、格式转换。配合 ffsubsync 使用：ffsubsync 负责时间轴对齐，Subtitle Edit 负责内容处理。
+
+## When to Use / Not Use
+
+**适合**
+
+- 制作中英双语字幕
+- 清理字幕里的广告、水印文字
+- 字幕格式转换（SRT、ASS、VTT 等）
+- 精细调整时间轴（波形辅助）
+- 批量机器翻译字幕
+
+**不适合**
+
+- 自动同步（用 ffsubsync）
+- 命令行批处理场景（用脚本更合适）
+
+## Gotchas
+
+- 机器翻译需要配置 API Key（Google/DeepL），免费额度有限
+- 双语字幕合并后行距可能影响显示，播放器兼容性需要测试
+- 批量操作前建议备份原文件
+- Linux/macOS 需要 Mono 运行，体验不如 Windows
+
+## My Setup
+
+双语字幕工作流：
+
+1. 导入英文字幕
+2. `Auto-translate` → 选翻译引擎 → 生成中文译文
+3. `Tools → Merge` 合并双语为同一字幕块
+4. 导出 ASS 格式（样式更灵活）
+
+## Minimal Example
+
+无命令行，纯 GUI 操作。核心菜单：
+
+- `Video` → 载入视频对照波形
+- `Auto-translate` → 机器翻译
+- `Tools → Fix common errors` → 批量清理问题行
+- `File → Export` → 导出目标格式
+
+## References
+
+- [官网](https://www.nikse.dk/subtitleedit)
+- [GitHub](https://github.com/SubtitleEdit/subtitleedit)
+- [下载页](https://github.com/SubtitleEdit/subtitleedit/releases)

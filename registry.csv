@@ -3,3 +3,4 @@ index,id,name,category,file,url,platform,description,added
 002,ffmpeg,ffmpeg,Media,tools/ffmpeg.qmd,https://ffmpeg.org,all,Multimedia processing toolkit,2026-04-13
 003,typora,Typora,Writing,tools/typora.qmd,https://typora.io,win/mac/linux,Markdown editor with live preview,2026-04-13
 004,ffsubsync,ffsubsync,Media,tools/ffsubsync.qmd,https://github.com/smacke/ffsubsync,all,Automatic subtitle synchronization tool,2026-04-13
+005,subtitleedit,Subtitle Edit,Media,tools/subtitleedit.qmd,https://www.nikse.dk/subtitleedit,win/linux/mac,Full-featured subtitle editor,2026-04-13
