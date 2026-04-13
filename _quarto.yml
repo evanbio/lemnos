@@ -30,6 +30,9 @@ website:
         contents:
           - tools/yt-dlp.qmd
           - tools/ffmpeg.qmd
+      - section: "Writing"
+        contents:
+          - tools/typora.qmd
 
   page-footer:
     left: "© 2026 Yibin Zhou"
