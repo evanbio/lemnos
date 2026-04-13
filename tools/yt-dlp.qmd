@@ -51,12 +51,6 @@ yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]" \
 
 2020 年，RIAA 用 DMCA 把 youtube-dl 从 GitHub 下架了。事情后来的发展不太符合他们的初衷：代码没有消失，反而以更多 fork、镜像和替代实现的形式散了出去。yt-dlp 就是在这种背景下出现的。互联网有时就是这样——越想让某样东西安静下来，它往往越难安静。
 
-## References
-
-- [GitHub](https://github.com/yt-dlp/yt-dlp)
-- [Supported sites](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)
-- [Wiki](https://github.com/yt-dlp/yt-dlp/wiki)
-
 ## Minimal Example
 
 ```bash
@@ -69,3 +63,9 @@ yt-dlp -x --audio-format mp3 <URL>
 # 下载整个播放列表
 yt-dlp -o "%(playlist_index)s-%(title)s.%(ext)s" <PLAYLIST_URL>
 ```
+
+## References
+
+- [GitHub](https://github.com/yt-dlp/yt-dlp)
+- [Supported sites](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)
+- [Wiki](https://github.com/yt-dlp/yt-dlp/wiki)

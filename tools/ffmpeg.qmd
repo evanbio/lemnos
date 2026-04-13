@@ -1,0 +1,71 @@
+---
+title: "ffmpeg"
+date: 2026-04-13
+categories: [Media]
+index: "002"
+image: ../assets/image/ffmpeg.png
+---
+
+![](../assets/image/ffmpeg.png){width=200}
+
+## Intro
+
+ffmpeg 是多媒体处理的基础设施。几乎所有涉及视频、音频的软件底层都在调用它——从剪辑软件到流媒体平台。命令行工具，GitHub 45k+ stars，但真实影响力远不止于此：它是行业标准，不是选项之一。
+
+## My Use
+
+两件事：格式转换，以及把视频里的音轨提取出来。前者是日常，后者是刚需。yt-dlp 下载的内容有时需要 ffmpeg 收尾，两个工具搭配使用。
+
+## When to Use / Not Use
+
+**适合**
+
+- 音视频格式转换（几乎支持所有格式）
+- 从视频提取音频
+- 批量处理（配合 shell 脚本）
+- 调整码率、分辨率、帧率
+
+**不适合**
+
+- 视频剪辑（有时间轴概念的任务用专用工具更直观）
+- 实时预览效果（命令行无法所见即所得）
+
+## Gotchas
+
+- 输出格式由扩展名决定，写错扩展名会得到意外结果
+- `-vn` 去掉视频流，`-an` 去掉音频流，容易混
+- 默认会重新编码，加 `-c copy` 可以流复制，速度快且无损——很多场景下忘记这个选项
+- 覆盖已有文件需要加 `-y`，否则会交互询问，脚本里容易卡住
+
+## My Setup
+
+```bash
+# 提取音频，保留原始质量
+ffmpeg -i input.mp4 -vn -c:a copy output.m4a
+
+# 转换为 mp3，固定码率
+ffmpeg -i input.mp4 -vn -ar 44100 -ac 2 -b:a 192k output.mp3
+```
+
+## Story
+
+2011 年，ffmpeg 的几位核心开发者因治理分歧出走，fork 了一个叫 Libav 的项目。此后数年，两个项目并行存在，Debian、Ubuntu 等主流发行版一度切换到 Libav。争议持续了将近十年，最终 ffmpeg 赢了——Libav 已经基本停止维护，各大发行版陆续回归。这场分裂留下的痕迹至今还能在一些老文档里看到。
+
+## Minimal Example
+
+```bash
+# 视频转音频
+ffmpeg -i input.mp4 -vn output.mp3
+
+# 格式转换（流复制，无损快速）
+ffmpeg -i input.mkv -c copy output.mp4
+
+# 批量提取音频（bash）
+for f in *.mp4; do ffmpeg -i "$f" -vn "${f%.mp4}.mp3"; done
+```
+
+## References
+
+- [官网](https://ffmpeg.org)
+- [文档](https://ffmpeg.org/documentation.html)
+- [GitHub](https://github.com/FFmpeg/FFmpeg)
