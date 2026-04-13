@@ -18,6 +18,7 @@ website:
         contents:
           - tools/yt-dlp.qmd
           - tools/ffmpeg.qmd
+          - tools/ffsubsync.qmd
       - section: "Writing"
         contents:
           - tools/typora.qmd

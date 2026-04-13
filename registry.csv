@@ -2,3 +2,4 @@ index,id,name,category,file,url,platform,description,added
 001,yt-dlp,yt-dlp,Media,tools/yt-dlp.qmd,https://github.com/yt-dlp/yt-dlp,all,Video and audio downloader,2026-04-13
 002,ffmpeg,ffmpeg,Media,tools/ffmpeg.qmd,https://ffmpeg.org,all,Multimedia processing toolkit,2026-04-13
 003,typora,Typora,Writing,tools/typora.qmd,https://typora.io,win/mac/linux,Markdown editor with live preview,2026-04-13
+004,ffsubsync,ffsubsync,Media,tools/ffsubsync.qmd,https://github.com/smacke/ffsubsync,all,Automatic subtitle synchronization tool,2026-04-13

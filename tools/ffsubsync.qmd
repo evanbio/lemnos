@@ -1,0 +1,57 @@
+---
+title: "ffsubsync"
+categories: [Media]
+index: "004"
+image: ../assets/image/ffsubsync.png
+---
+
+![](../assets/image/ffsubsync.png){height=80 fig-align="center"}
+
+## Intro
+
+ffsubsync 是一个字幕自动同步工具，用语音检测 + FFT 算法比对视频音轨和字幕时间轴，自动计算偏移量并校正。不同来源的视频和字幕经常对不上，这个工具一条命令解决。
+
+## My Use
+
+从不同来源下载的视频和字幕时间轴经常错位。ffsubsync 拿视频音轨作参考，把字幕时间轴对齐，不需要手动调整。
+
+## When to Use / Not Use
+
+**适合**
+
+- 视频和字幕来源不同导致的时间轴偏移
+- 批量修复字幕（配合 shell 脚本）
+- SRT、ASS 等主流字幕格式
+
+**不适合**
+
+- 字幕内容有误（只修时间，不改文字）
+- 字幕广告、垃圾行（需要另外清理）
+- 无人声的纯音乐视频（VAD 检测不到语音）
+
+## Gotchas
+
+- 需要 ffmpeg 提前安装，ffsubsync 依赖它提取音轨
+- 偏移量过大（超过几分钟）时准确率下降
+- ASS 格式支持较好，但复杂样式偶有问题
+- 输出文件需要用 `-o` 指定，否则会覆盖原字幕
+
+## My Setup
+
+```bash
+ffs video.mkv -i subtitle.ass -o subtitle.synced.ass
+```
+
+## Minimal Example
+
+```bash
+# 基本用法
+ffs video.mkv -i subtitle.srt -o subtitle_synced.srt
+
+# 以另一个字幕作参考（而非视频）
+ffs reference.srt -i subtitle.srt -o subtitle_synced.srt
+```
+
+## References
+
+- [GitHub](https://github.com/smacke/ffsubsync)
