@@ -20,6 +20,7 @@ website:
           - tools/ffmpeg.qmd
           - tools/ffsubsync.qmd
           - tools/subtitleedit.qmd
+          - tools/imagemagick.qmd
       - section: "Writing"
         contents:
           - tools/typora.qmd
@@ -48,5 +49,4 @@ format:
     toc-title: "On this page"
     code-copy: true
     code-overflow: wrap
-
 
