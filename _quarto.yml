@@ -21,6 +21,7 @@ website:
           - tools/ffsubsync.qmd
           - tools/subtitleedit.qmd
           - tools/imagemagick.qmd
+          - tools/pngquant.qmd
       - section: "Writing"
         contents:
           - tools/typora.qmd
@@ -49,4 +50,3 @@ format:
     toc-title: "On this page"
     code-copy: true
     code-overflow: wrap
-

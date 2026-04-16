@@ -5,3 +5,4 @@ index,id,name,category,file,url,platform,description,added
 004,ffsubsync,ffsubsync,Media,tools/ffsubsync.qmd,https://github.com/smacke/ffsubsync,all,Automatic subtitle synchronization tool,2026-04-13
 005,subtitleedit,Subtitle Edit,Media,tools/subtitleedit.qmd,https://www.nikse.dk/subtitleedit,win/linux/mac,Full-featured subtitle editor,2026-04-13
 006,imagemagick,ImageMagick,Media,tools/imagemagick.qmd,https://imagemagick.org,all,Command-line image processing toolkit,2026-04-16
+007,pngquant,pngquant,Media,tools/pngquant.qmd,https://pngquant.org,all,PNG image compressor,2026-04-16

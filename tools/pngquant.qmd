@@ -1,0 +1,79 @@
+---
+title: "pngquant"
+categories: [Media]
+index: "007"
+image: ../assets/image/pngquant.png
+---
+
+![](../assets/image/pngquant.png){height=80 fig-align="center"}
+
+## Intro
+
+pngquant 是一个专门压缩 PNG 的命令行工具。它通过调色板量化把 24/32-bit PNG 转成更小的 8-bit PNG，通常能明显减小体积，同时保留透明通道和还不错的视觉质量。
+
+## My Use
+
+我用它处理网站里的截图、图标和小型界面素材。ImageMagick 适合“改图”，pngquant 更适合“把 PNG 压小”。如果目标是保留 PNG 格式，但让文件体积降下来，它比通用图片工具更直接。
+
+## When to Use / Not Use
+
+**适合**
+
+- 压缩 PNG 截图、图标、UI 素材
+- 保留透明通道的同时减小体积
+- 批量处理网站静态资源
+- 在发布前压一遍图片资源
+
+**不适合**
+
+- 照片类大图（WebP、AVIF、JPEG 通常更合适）
+- 必须无损保留每个像素的图片
+- 已经是很小的索引色 PNG
+- 对颜色精度极敏感的设计稿或印刷素材
+
+## Gotchas
+
+- pngquant 是有损压缩，不是无损优化；颜色会被重新量化
+- `--quality` 是质量范围，不是 JPEG 那种单点质量值
+- 如果图片达不到最低质量，默认会跳过输出，脚本里要注意返回结果
+- 默认输出文件名会加 `-fs8` 后缀；想覆盖或自定义后缀要显式设置
+- 透明渐变、阴影和细腻插画最容易看出压缩痕迹
+
+## My Setup
+
+```bash
+# 压缩单张 PNG，质量控制在 65-85
+pngquant --quality=65-85 image.png
+
+# 覆盖原文件，谨慎使用
+pngquant --quality=65-85 --force --ext .png image.png
+
+# 批量压缩当前目录 PNG
+pngquant --quality=65-85 --skip-if-larger --ext .png --force *.png
+
+# 去掉元数据，减少一点体积
+pngquant --strip --quality=65-85 image.png
+```
+
+## Story
+
+PNG 的麻烦在于它看起来“已经压缩过了”，但很多截图和透明素材仍然很大。pngquant 做的事情很窄：不负责裁剪、不负责格式转换、不负责复杂处理，只负责把 PNG 变小。窄有时是优点，因为参数少、结果稳定，很适合放进发布前的检查流程。
+
+## Minimal Example
+
+```bash
+# 生成 image-fs8.png
+pngquant image.png
+
+# 原地压缩，质量不足则跳过
+pngquant --quality=70-90 --skip-if-larger --force --ext .png image.png
+
+# 批量压缩 assets 里的 PNG
+pngquant --quality=70-90 --skip-if-larger --force --ext .png assets/**/*.png
+```
+
+## References
+
+- [官网](https://pngquant.org)
+- [GitHub](https://github.com/kornelski/pngquant)
+- [Manual](https://pngquant.org/pngquant.1.html)
