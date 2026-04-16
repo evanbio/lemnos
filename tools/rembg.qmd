@@ -1,0 +1,80 @@
+---
+title: "rembg"
+categories: [Media]
+index: "008"
+image: ../assets/image/rembg.png
+---
+
+![](../assets/image/rembg.png){height=80 fig-align="center"}
+
+## Intro
+
+rembg 是一个自动去除图片背景的工具。它可以作为命令行、Python 库、HTTP server 或 Docker 容器使用，适合把“抠图”这种本来需要手工处理的步骤放进脚本里。
+
+## My Use
+
+我主要用它处理R包的sticker。它不是 Photoshop 的替代品，而是一个批处理入口：先自动去背景，得到可用的透明 PNG，再按需要用 ImageMagick 或设计工具收尾。
+
+## When to Use / Not Use
+
+**适合**
+
+- 人像、物体、产品图去背景
+- 批量生成透明 PNG 素材
+- 在脚本里处理一组图片
+- 快速生成封面、贴纸、头像素材
+- 搭配 ImageMagick 做后续裁剪、缩放和压缩
+
+**不适合**
+
+- 边缘极复杂、毛发很多、背景和主体颜色接近的图片
+- 需要像素级精修的商业素材
+- 对模型输出稳定性要求很高的自动化生产流程
+- 不想下载模型或没有合适 Python 环境的场景
+
+## Gotchas
+
+- 新版安装要根据硬件选择 extra：CPU 通常用 `rembg[cpu,cli]`
+- 首次运行会下载模型，离线环境要提前准备模型缓存
+- 输出通常是带 alpha 的 PNG，后续转 JPG 会丢失透明通道
+- 自动抠图不是魔法，复杂边缘经常需要人工修
+- GPU 版本依赖 ONNX Runtime、CUDA 或 ROCm，环境比 CPU 版麻烦
+
+## My Setup
+
+```bash
+# 安装 CLI（CPU）
+pip install "rembg[cpu,cli]"
+
+# 单张图片去背景
+rembg i input.jpg output.png
+
+# 批量处理目录
+rembg p input-dir output-dir
+
+# 使用轻量模型
+rembg i -m u2netp input.jpg output.png
+```
+
+## Story
+
+去背景曾经是典型的“打开软件、慢慢抠”的活。rembg 把它变成了一条命令：效果不总是完美，但足够快，尤其适合先得到一个可编辑的透明素材。我的使用方式很简单：先自动化拿到 80 分结果，再决定要不要花人工时间补最后 20 分。
+
+## Minimal Example
+
+```bash
+# 本地图片去背景
+rembg i input.jpg output.png
+
+# 批量去背景
+rembg p photos cutouts
+
+# 通过管道处理远程图片
+curl -s https://example.com/input.png | rembg i > output.png
+```
+
+## References
+
+- [GitHub](https://github.com/danielgatis/rembg)
+- [PyPI](https://pypi.org/project/rembg/)
+- [Examples](https://github.com/danielgatis/rembg/tree/main/examples)
