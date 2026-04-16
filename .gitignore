@@ -4,4 +4,4 @@ _freeze/
 .DS_Store
 Thumbs.db
 *.bak
-dev
+_dev

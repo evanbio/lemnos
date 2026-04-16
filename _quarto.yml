@@ -23,6 +23,11 @@ website:
       - section: "Writing"
         contents:
           - tools/typora.qmd
+      - section: "AI"
+        contents:
+          - section: "Commands"
+            contents:
+              - ai/commands/commit.qmd
 
   page-footer:
     left: "© 2026 Yibin Zhou"
@@ -43,3 +48,5 @@ format:
     toc-title: "On this page"
     code-copy: true
     code-overflow: wrap
+
+

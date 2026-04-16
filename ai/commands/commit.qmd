@@ -1,0 +1,65 @@
+---
+title: "Commit"
+categories: [AI, Command]
+index: "001"
+prompt: _prompts/commit.md
+---
+
+## Intro
+
+`commit` is an AI command for turning staged Git changes into one intentional commit.
+
+## My Use
+
+我用它处理已经整理好的改动：先确认暂存区边界，再检查 diff，最后生成一条清楚的 conventional commit message。它不是用来“一键提交所有东西”的，而是用来避免误提交、混合提交和含糊的提交信息。
+
+## When to Use / Not Use
+
+**适合**
+
+- 已经用 `git add` 暂存了本次要提交的文件
+- 当前改动只有一个明确意图
+- 希望提交信息保持 conventional commit 风格
+- 希望 AI 在提交前帮忙检查 staged diff
+
+**不适合**
+
+- 工作区里混着多个不相关改动
+- 还没决定哪些文件应该进入提交
+- 需要 `reset`、`rebase`、`amend`、`force push` 等历史操作
+- 只是想把所有未提交文件直接塞进一个 commit
+
+## Gotchas
+
+- 默认边界应该是 staged files，不是整个 working tree
+- 没有 staged files 时，不应该自动 `git add .`
+- unstaged 或 untracked 文件只能提示，不能静默带入
+- mixed intent 要先拆分，不要强行生成一个大 commit
+- hook 失败后不应自动 `--no-verify` 重试
+- commit message 不要包含 AI/Claude/Codex 签名
+
+## My Setup
+
+```md
+{{< include _prompts/commit.md >}}
+```
+
+## Story
+
+`/commit` 真正解决的问题不是少敲一条 `git commit`，而是把提交边界想清楚。好的提交应该让未来的自己一眼看懂：改了什么、为什么是一组、有没有把不该进来的东西带进去。
+
+## Minimal Example
+
+```bash
+git add _quarto.yml ai/commands/commit.qmd ai/commands/_prompts/commit.md
+/commit
+```
+
+```text
+docs: add commit command page
+```
+
+## References
+
+- [Conventional Commits](https://www.conventionalcommits.org/)
+- [Git commit](https://git-scm.com/docs/git-commit)
