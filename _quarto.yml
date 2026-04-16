@@ -23,6 +23,7 @@ website:
           - tools/imagemagick.qmd
           - tools/pngquant.qmd
           - tools/rembg.qmd
+          - tools/geminiwatermarktool.qmd
       - section: "Writing"
         contents:
           - tools/typora.qmd
