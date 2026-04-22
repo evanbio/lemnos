@@ -24,6 +24,7 @@ website:
           - tools/pngquant.qmd
           - tools/rembg.qmd
           - tools/geminiwatermarktool.qmd
+          - tools/openscreen.qmd
       - section: "Writing"
         contents:
           - tools/typora.qmd

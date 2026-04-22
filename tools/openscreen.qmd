@@ -1,0 +1,68 @@
+---
+title: "OpenScreen"
+categories: [Media]
+index: "010"
+image: ../assets/image/openscreen.png
+---
+
+![](../assets/image/openscreen.png){height=80 fig-align="center"}
+
+## Intro
+
+OpenScreen 是一个开源的桌面录屏和演示视频编辑工具，定位是 Screen Studio 的免费轻量替代。它基于 Electron、React、TypeScript 和 PixiJS，重点不是通用剪辑，而是把产品演示、软件 walkthrough、教程录屏做得更干净。
+
+## My Use
+
+我会把它放在“录屏后快速润色”的工具位：先录窗口或整屏，再补自动/手动缩放、裁剪、背景、注释、变速和导出比例。它适合做短演示，不适合替代 DaVinci Resolve、Premiere 这类完整视频编辑器。
+
+## When to Use / Not Use
+
+**适合**
+
+- 录制产品 demo、软件教程和功能 walkthrough
+- 想要自动缩放、手动缩放和更漂亮的鼠标/画面运动
+- 需要同时录麦克风和系统音频
+- 需要裁剪画面、加背景、加文字/箭头/图片注释
+- 不想在录屏软件订阅、导出水印或商用限制上折腾
+
+**不适合**
+
+- 需要多轨剪辑、复杂调色、字幕包装和完整后期流程
+- 对稳定性要求很高的正式生产环境
+- 需要 Screen Studio 全量高级功能的场景
+- 不想处理 Electron 桌面应用权限、签名或平台兼容问题
+
+## Gotchas
+
+- 项目仍在 beta 阶段，遇到录制、权限或导出问题要预留排查时间
+- Windows 下系统音频基本开箱即用，但录麦克风前还是要检查输入设备
+- 录制窗口前先把窗口尺寸、缩放比例和通知状态整理好，后期少修很多
+- 自动缩放适合快速出片，但关键操作最好手动检查一下落点和节奏
+- 它是更简单的 Screen Studio 替代，不是 1:1 clone
+
+## My Setup
+
+Windows 直接从 GitHub Releases 下载安装包，安装后打开用就行。我的流程通常是：先录窗口，不录整个屏幕；录完先裁掉多余边缘，再加 zoom；最后按发布位置选 16:9 或竖屏比例导出。
+
+如果是给别人看的 demo，我会先关掉桌面通知、浏览器书签栏和无关窗口。OpenScreen 的价值主要在录完之后的整理：zoom、crop、background 和 annotation 比单纯录屏更重要。
+
+## Story
+
+OpenScreen 的作者 Siddharth Vaddem 一开始就是把它做成一个免费、开源、无水印、可商用的 Screen Studio 替代品。它没有假装自己是完整复刻，而是很直接地承认：Screen Studio 做得很好，OpenScreen 只是把大多数人最常用的 demo 录制和润色功能做出来。
+
+这个定位反而很清楚。它不是要抢专业剪辑软件的位置，也不是把所有视频功能都塞进去，而是解决一个具体问题：不订阅、不加水印，也能做出看起来比较体面的产品演示视频。
+
+## Minimal Example
+
+典型流程：
+
+1. 从 GitHub Releases 下载 Windows 安装包
+2. 选择窗口录制
+3. 录完后裁剪边缘、添加 zoom 和必要注释
+4. 选择导出比例和分辨率
+
+## References
+
+- [GitHub](https://github.com/siddharthvaddem/openscreen)
+- [Releases](https://github.com/siddharthvaddem/openscreen/releases)
+- [Website](https://openscreen.vercel.app)

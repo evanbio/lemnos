@@ -8,3 +8,4 @@ index,id,name,category,file,url,platform,description,added
 007,pngquant,pngquant,Media,tools/pngquant.qmd,https://pngquant.org,all,PNG image compressor,2026-04-16
 008,rembg,rembg,Media,tools/rembg.qmd,https://github.com/danielgatis/rembg,all,Background removal tool,2026-04-16
 009,geminiwatermarktool,GeminiWatermarkTool,Media,tools/geminiwatermarktool.qmd,https://github.com/allenk/GeminiWatermarkTool,all,Gemini visible watermark removal tool,2026-04-16
+010,openscreen,OpenScreen,Media,tools/openscreen.qmd,https://github.com/siddharthvaddem/openscreen,win/mac/linux,Open-source screen recorder and demo video editor,2026-04-22
