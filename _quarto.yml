@@ -9,6 +9,9 @@ website:
     style: "docked"
     search: true
     tools:
+      - icon: house-check-fill
+        href: https://evanzhou.org/
+        aria-label: Home
       - icon: github
         href: https://github.com/evanbio/lemnos
         aria-label: GitHub
